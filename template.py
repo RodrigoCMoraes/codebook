@@ -25,7 +25,14 @@ def main():
 
     value = read()
     if len(value) == 0: # EOF
-        return
+        write("End Of File")
+
+    rows, cols = 4, 5
+    matrix = [[float("-inf") for _ in range(cols)] for _ in range(rows)]
+    # avoid: [[float("-inf")] * cols] * rows
+    # that way the rows will shared the tuples references
+    write(f"rows: {len(matrix)}")
+    write(f"cols: {len(matrix[0])}")
 
 
 if __name__ == "__main__":
