@@ -21,8 +21,11 @@ import heapq
 
 def cookies(k, A):
     heapq.heapify(A)
+    # if all A values are negated -A[i], one can use the min heap as max heap
+    # heapq._heapify_max()
     iterations = 0
     while len(A) > 1:
+        # l1 = heapq._heappop_max()
         l1 = heapq.heappop(A)
         if l1 >= k:
             return iterations
@@ -33,4 +36,4 @@ def cookies(k, A):
     l1 = heapq.heappop(A)
     if l1 >= k:
         return iterations
-    return -
+    return -1
