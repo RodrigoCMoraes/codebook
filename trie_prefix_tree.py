@@ -32,6 +32,17 @@ def add(root, s):
     current.end_mark = True
     return True
 
+
+def search(root, s):
+    current = root
+    for char in s:
+        nw = ord(char) - ord('a')
+        if current.next[nw] is None:
+            return False
+        current = current.next[nw]
+    return current.end_mark
+
+
 def noPrefix(words):
     trie = TrieNode()
     for word in words:
@@ -40,7 +51,6 @@ def noPrefix(words):
             print(word)
             return
     print("GOOD SET")
-    
     
 
 if __name__ == '__main__':
